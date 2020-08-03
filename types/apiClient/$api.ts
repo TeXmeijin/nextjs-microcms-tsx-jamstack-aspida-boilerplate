@@ -14,9 +14,9 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
         const prefix0 = `${PATH0}/${val0}`
 
         return {
-          get: (option: { query: Methods1['get']['query'], config?: T }) =>
+          get: (option?: { config?: T }) =>
             fetch<Methods1['get']['resBody']>(prefix, prefix0, GET, option).json(),
-          $get: (option: { query: Methods1['get']['query'], config?: T }) =>
+          $get: (option?: { config?: T }) =>
             fetch<Methods1['get']['resBody']>(prefix, prefix0, GET, option).json().then(r => r.body)
         }
       },
