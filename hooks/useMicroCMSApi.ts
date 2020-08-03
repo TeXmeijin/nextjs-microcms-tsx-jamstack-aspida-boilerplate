@@ -1,38 +1,27 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 type useMicroCMSApi = {
-  <T>($get: () => Promise<T>): {
+  <T>($get: () => Promise<T>): Promise<{
     data: T,
-    isLoading: boolean,
-    isError: boolean
-  }
+  }>
 }
 
-export const useMicroCMSApi: useMicroCMSApi = ($get) => {
+export const useMicroCMSApi: useMicroCMSApi = async ($get) => {
   const [data, setData] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsError(false)
-      setIsLoading(true)
+  const fetchData = async () => {
 
-      try {
-        setData(await $get())
-      } catch (error) {
-        setIsError(true)
-      }
-
-      setIsLoading(false)
+    try {
+      setData(await $get())
+    } catch (error) {
+      console.error({error})
     }
 
-    fetchData()
-  }, [data])
+  }
+
+  await fetchData()
 
   return {
     data,
-    isError,
-    isLoading,
   }
 }
