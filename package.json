@@ -1,0 +1,26 @@
+{
+  "name": "nextjs-ssg-microcms-tsx-jamstack-aspida-boilerplate",
+  "version": "0.1.0",
+  "author": "TeXmeijin",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@aspida/fetch": "^0.8.1",
+    "next": "9.5.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.44",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "eslint": "^7.6.0",
+    "eslint-plugin-react": "^7.20.5",
+    "typescript": "^3.9.7"
+  }
+}
