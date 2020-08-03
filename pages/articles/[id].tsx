@@ -16,23 +16,18 @@ export const getStaticProps: GetStaticProps = async (context): Promise<{props: {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [
-      { params: { id: 'rrsawgjoo' } },
-    ],
+    paths: (await apiClient.articles.$get()).contents.map(article => {
+      return {
+        params: {
+          id: article.id
+        }
+      }
+    }),
     fallback: true
   }
 }
 
 const ArticleDetail = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-
-  if (!data) {
-    return (
-      <div>
-        loading...
-      </div>
-    )
-  }
-
   return (
     <div>
       <h1>
