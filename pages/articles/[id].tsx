@@ -1,12 +1,11 @@
 import { apiClient } from '../../modules/apiClient'
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
-import { MicroCmsArticle } from '../../types/microcms/type'
 import React from 'react'
 
 export const getStaticProps = async (context: GetStaticPropsContext<{id: string}>) => {
   const { id } = context.params
 
-  const article: MicroCmsArticle = await apiClient.articles._cmsId(id).$get()
+  const article = await apiClient.articles._cmsId(id).$get()
 
   return {
     props: {
@@ -32,10 +31,10 @@ const ArticleDetail = ({ article }: InferGetStaticPropsType<typeof getStaticProp
   return (
     <div>
       <h1>
-        {article.title}
+        { article.title }
       </h1>
       <p>
-        {article.body}
+        { article.body }
       </p>
     </div>
   )
