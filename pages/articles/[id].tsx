@@ -28,14 +28,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 const ArticleDetail = ({ article }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const createMarkUp = () => {
+    return {__html: article.body}
+  }
   return (
     <div>
       <h1>
         { article.title }
       </h1>
-      <p>
-        { article.body }
-      </p>
+      <div dangerouslySetInnerHTML={ createMarkUp() }>
+      </div>
     </div>
   )
 }
