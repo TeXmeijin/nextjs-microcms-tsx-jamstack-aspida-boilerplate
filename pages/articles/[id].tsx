@@ -19,6 +19,7 @@ export const getStaticProps: GetStaticProps<{ article: MicroCmsArticle }> = asyn
     props: {
       article,
     },
+    revalidate: 1,
   }
 }
 
