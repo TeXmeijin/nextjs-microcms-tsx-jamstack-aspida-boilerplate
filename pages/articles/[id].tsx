@@ -7,6 +7,8 @@ import {
 } from 'next'
 import React from 'react'
 import { MicroCmsArticle } from '../../types/microcms/type'
+import { useRouter } from 'next/router'
+import Loading from '../../components/parts/loading/Loading'
 
 export const getStaticProps: GetStaticProps<{ article: MicroCmsArticle }> = async (context: GetStaticPropsContext<{id: string}>) => {
   const { id } = context.params
@@ -29,11 +31,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
       }
     }),
-    fallback: false,
+    fallback: true,
   }
 }
 
 const ArticleDetail = ({ article }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter()
+
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return Loading
+  }
+
   const createMarkUp = () => {
     return { __html: article.body }
   }
