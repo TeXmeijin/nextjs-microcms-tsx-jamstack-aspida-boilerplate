@@ -1,18 +1,20 @@
 import Head from 'next/head'
 import { apiClient } from '../modules/apiClient'
 import {
-  GetStaticPaths,
+  GetStaticProps,
   InferGetStaticPropsType
 } from 'next'
 import ArticleListItem from '../components/article/ArticleListItem'
+import { MicroCmsArticle } from '../types/microcms/type'
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps<{articles: MicroCmsArticle[]}> = async () => {
   const articles = (await apiClient.articles.$get()).contents
 
   return {
     props: {
       articles,
     },
+    revalidate: 1,
   }
 }
 
