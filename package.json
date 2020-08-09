@@ -9,6 +9,17 @@
     "api:build": "aspida --build",
     "start": "next start"
   },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "@aspida/fetch": "^0.8.1",
     "next": "9.5.1",
@@ -22,6 +33,8 @@
     "@typescript-eslint/parser": "^3.7.1",
     "eslint": "^7.6.0",
     "eslint-plugin-react": "^7.20.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "typescript": "^3.9.7"
   }
 }

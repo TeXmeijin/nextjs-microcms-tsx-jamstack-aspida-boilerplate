@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const ArticleDetail = ({ article }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const createMarkUp = () => {
-    return {__html: article.body}
+    return { __html: article.body }
   }
   return (
     <div>
