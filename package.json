@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "api:build": "aspida --build",
+    "build": "aspida --build && next build",
+    "build:api": "aspida --build",
     "start": "next start"
   },
   "lint-staged": {
