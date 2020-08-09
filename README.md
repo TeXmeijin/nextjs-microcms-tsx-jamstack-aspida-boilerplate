@@ -12,6 +12,24 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## TypeScript
+
+This project is written in TypeScript. The configuration is `tsconfig.json`.
+
+Page components are fully `.tsx`. And Next.js supported methods are also written in TypeScript.
+
+For example, look at `pages/articles/[id].tsx`.
+
+```typescript
+export const getStaticProps: GetStaticProps<{ article: MicroCmsArticle }> = async (context: GetStaticPropsContext<{id: string}>) => {
+  // ...
+}
+```
+
+## Incremental Static Regeneration
+
+This project supports [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration).
+
 ## What's microCMS?
 
 `microCMS` is a headless CMS service in Japan. It is similar to such as strapi, Contentful, DatoCMS, and so on.
@@ -41,6 +59,8 @@ You can get microCMS content by following code.
 const article = await apiClient.articles._cmsId(id).$get()
 ```
 
+**Notice:** each you implement API types under `types/apiClient` directory, you must run `yarn build:api` command.
+
 ## Environments
 
 You touch the env file. Called `.env.local`
@@ -56,8 +76,14 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Others
-Since this project will be used in my job, the settings for `eslint` and `husky` are also completed. `CSS in JS` is not installed because there is no standard.
+## ESLint
+The settings for `eslint` and `husky` are also completed, but `CSS in JS` is not installed because there is no standard.
+
+Of course, you can add and remove rules by editting `.eslintrc.js`.
 
 ## Contribution
 I'm not familiar with React and Next.js, so if you have any suggestions for resolving errors or better improvements, please contribute via issue or pull request.
+
+## Author
+
+Twitter: [@Meijin_garden](https://twitter.com/Meijin_garden)
