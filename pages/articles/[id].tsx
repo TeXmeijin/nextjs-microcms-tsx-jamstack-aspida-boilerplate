@@ -1,8 +1,14 @@
 import { apiClient } from '../../modules/apiClient'
-import { InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
+import {
+  InferGetStaticPropsType,
+  GetStaticPaths,
+  GetStaticPropsContext,
+  GetStaticProps
+} from 'next'
 import React from 'react'
+import { MicroCmsArticle } from '../../types/microcms/type'
 
-export const getStaticProps = async (context: GetStaticPropsContext<{id: string}>) => {
+export const getStaticProps: GetStaticProps<{ article: MicroCmsArticle }> = async (context: GetStaticPropsContext<{id: string}>) => {
   const { id } = context.params
 
   const article = await apiClient.articles._cmsId(id).$get()
@@ -23,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
       }
     }),
-    fallback: true
+    fallback: false,
   }
 }
 
