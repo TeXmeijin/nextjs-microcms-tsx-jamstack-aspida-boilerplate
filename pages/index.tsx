@@ -16,14 +16,6 @@ export const getStaticProps = async () => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [
-    ],
-    fallback: true
-  }
-}
-
 const Home = ({ articles }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
