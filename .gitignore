@@ -32,6 +32,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-# aspida
-/types/apiClient/$api.ts
