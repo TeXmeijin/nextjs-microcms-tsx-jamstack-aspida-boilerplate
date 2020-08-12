@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "aspida --build && next build",
-    "build:api": "aspida --build",
+    "build": "aspida --build && aspida-mock && next build",
+    "build:api": "aspida --build && aspida-mock",
     "start": "next start"
   },
   "lint-staged": {
@@ -21,7 +21,8 @@
     }
   },
   "dependencies": {
-    "@aspida/fetch": "^0.8.1",
+    "@aspida/axios": "^0.10.2",
+    "axios": "^0.19.2",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -31,6 +32,7 @@
     "@types/react": "^16.9.44",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
+    "aspida-mock": "^0.7.1",
     "eslint": "^7.6.0",
     "eslint-plugin-react": "^7.20.5",
     "husky": "^4.2.5",

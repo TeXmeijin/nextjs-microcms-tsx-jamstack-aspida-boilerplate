@@ -1,16 +1,10 @@
-export type MicroCmsArticle = MicroCmsIdentity & MicroCmsArticleCntent & MicroCmsImage
-
-type MicroCmsImage = {
-  // サムネ
-  image_url: {
-    url: string
-  }
-}
+export type MicroCmsArticle = MicroCmsIdentity & MicroCmsArticleCntent
 
 type MicroCmsIdentity = {
   id: string
   createdAt: string
   updatedAt: string
+  publishedAt: string
 }
 
 type MicroCmsArticleCntent = {

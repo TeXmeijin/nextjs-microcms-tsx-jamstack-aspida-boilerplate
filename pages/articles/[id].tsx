@@ -9,6 +9,7 @@ import React from 'react'
 import { MicroCmsArticle } from '../../types/microcms/type'
 import { useRouter } from 'next/router'
 import Loading from '../../components/parts/loading/Loading'
+import Head from 'next/head'
 
 export const getStaticProps: GetStaticProps<{ article: MicroCmsArticle }> = async (context: GetStaticPropsContext<{id: string}>) => {
   const { id } = context.params
@@ -50,6 +51,9 @@ const ArticleDetail = ({ article }: InferGetStaticPropsType<typeof getStaticProp
   }
   return (
     <div>
+      <Head>
+        <title>{ article.title }</title>
+      </Head>
       <h1>
         { article.title }
       </h1>

@@ -52,12 +52,12 @@
   dependencies:
     cross-fetch "3.0.5"
 
-"@aspida/fetch@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@aspida/fetch/-/fetch-0.8.1.tgz#cacd409a4d5f764f90f26b8ded1da9cfe32ae7bd"
-  integrity sha512-Ox2UAF8XjPeEuTn8/Pq87Na6gA641QOn+vhKtFhwbYmD84eZ12Gk5qxW8OvReOkIixZK+lx0PgKJYv6onji09Q==
+"@aspida/axios@^0.10.2":
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/@aspida/axios/-/axios-0.10.2.tgz#0d1a835a9bfdd6ffef1ae4d3b0da7bff283312c4"
+  integrity sha512-PS904nIERssoDjH+uSe4W2nGHBFUzu55i0cDHWjBP9PCtF4T8btl3eJx1xTDCQSCs9NThVPbb/XCmoIQm2WbDA==
   dependencies:
-    aspida "^0.20.2"
+    aspida "^0.20.3"
 
 "@babel/code-frame@7.8.3":
   version "7.8.3"
@@ -1055,6 +1055,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha512-7+2BITlgjgDhH0vvwZU/HZJVyk+2XUlvxXe8dFMedNX/aMkaOq++rMAFXc0tM7ij15QaWlbdQASBR9dihi+bDQ==
 
+"@types/minimist@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
+  integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
+
 "@types/node@^14.0.27":
   version "14.0.27"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.27.tgz#a151873af5a5e851b51b3b065c9e63390a9e0eb1"
@@ -1494,12 +1499,18 @@ asn1.js@^4.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-aspida@^0.20.2:
-  version "0.20.2"
-  resolved "https://registry.yarnpkg.com/aspida/-/aspida-0.20.2.tgz#766d9cb616674e8bebade9e7fccb180c09fcd37e"
-  integrity sha512-TXB75EVfOg8toIsnc+6HLjThkC+2MM8FDGIgf2xIzCgIHUfShQbvDF5Jtn2241JhJ5vBzZvgBl01Pj/74TFAWQ==
+aspida-mock@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/aspida-mock/-/aspida-mock-0.7.1.tgz#8a1f83f12fbe61fde4bc78e545f52bad688181ce"
+  integrity sha512-TXI1+A+E89rQmSyukaYMNeXnmXM1bdji05d7QbOkSOjKzb2kcglAnPyMcDYYL4Dj+FHwwCd9BOucbls+tmVivQ==
+
+aspida@^0.20.3:
+  version "0.20.3"
+  resolved "https://registry.yarnpkg.com/aspida/-/aspida-0.20.3.tgz#86c8d88e38fa92973f1bddedb913508476dfe660"
+  integrity sha512-XOt8Udd86BE33ku/bVGLNxmVFhDN+IlV4i8tK1WIhaWtGdBalP0dC5c4PBDhuWraKPgjUzNNw+utwF9HLV0mgg==
   dependencies:
-    chokidar "^3.4.1"
+    "@types/minimist" "^1.2.0"
+    chokidar "^3.4.2"
     minimist "^1.2.5"
 
 assert@1.4.1:
@@ -1546,6 +1557,13 @@ atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+
+axios@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
 
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -1933,6 +1951,21 @@ chokidar@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.1.tgz#e905bdecf10eaa0a0b1db0c664481cc4cbc22ba1"
   integrity sha512-TQTJyr2stihpC4Sya9hs2Xh+O2wf+igjL36Y75xx2WdHuiICcn/XJza46Jwt0eT5hVpQOzo3FpY3cj3RVYLX0g==
+  dependencies:
+    anymatch "~3.1.1"
+    braces "~3.0.2"
+    glob-parent "~5.1.0"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.4.0"
+  optionalDependencies:
+    fsevents "~2.1.2"
+
+chokidar@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.2.tgz#38dc8e658dec3809741eb3ef7bb0a47fe424232d"
+  integrity sha512-IZHaDeBeI+sZJRX7lGcXsdzgvZqKv6sECqsbErJA4mHWfpRrD8B97kSFN4cQz6nGBGiuFia1MKR4d6c1o8Cv7A==
   dependencies:
     anymatch "~3.1.1"
     braces "~3.0.2"
@@ -2456,6 +2489,13 @@ data-uri-to-buffer@3.0.0:
   integrity sha512-MJ6mFTZ+nPQO+39ua/ltwNePXrfdF3Ww0wP1Od7EePySXN1cP9XNqRQOG3FxTfipp8jx898LUCgBCEP11Qw/ZQ==
   dependencies:
     buffer-from "^1.1.1"
+
+debug@=3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  dependencies:
+    ms "2.0.0"
 
 debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
@@ -3090,6 +3130,13 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
+
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+  dependencies:
+    debug "=3.1.0"
 
 for-in@^1.0.2:
   version "1.0.2"
