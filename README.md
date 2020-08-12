@@ -7,6 +7,7 @@ This project will help you quickly implement JAMStack service with TypeScript-fr
 Run the development server:
 
 ```bash
+yarn
 yarn dev
 ```
 
