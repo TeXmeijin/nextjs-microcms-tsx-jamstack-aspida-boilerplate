@@ -2,9 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`microCMS`](
 
 This project will help you quickly implement JAMStack service with TypeScript-friendly.
 
-## Getting Started Development
+## Set up
 
-First, run the development server:
+Run the development server:
 
 ```bash
 yarn dev
@@ -36,6 +36,8 @@ This project supports [Incremental Static Regeneration](https://nextjs.org/docs/
 
 Let's create account of `microCMS` for free, and make one api that has `/articles` path and create first article content.
 
+This sample uses `/articles` API in `microCMS`. Please make an API that has `/articles` path, and it has following properties: `title`, `body`, `description` (there are string types).
+
 Then you can access the api by below command.
 
 ```bash
@@ -53,6 +55,8 @@ And, run the command `yarn build:api` and you will get `types/apiClient/$api.ts`
 
 Then, check `modules/apiClient.ts`. This initializes aspida client and export it. With optimizing for `microCMS` APIs.
 
+*Notice:* at local development, we can use [`aspida-mock`](https://github.com/aspida/aspida/tree/master/packages/aspida-mock). The library make us building mock server and response data by using same API as real backend APIs. Please look at `modules/apiClient.ts`.
+
 You can get microCMS content by following code.
 
 ```typescript
@@ -63,12 +67,14 @@ const article = await apiClient.articles._cmsId(id).$get()
 
 ## Environments
 
-You touch the env file. Called `.env.local`
+You can touch the env file. Called `.env.local`
 
 ```dotenv
 MICROCMS_GET_API_KEY=<your-microcms-get-api-key>
 MICROCMS_BASE_URL=https://<your-project-name>.microcms.io/api/v1
 ```
+
+Only this sample, aspida uses mock-server at local development. So the env file isn't needed. But you must set these env values at [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) console.
 
 ## Deploy on Vercel
 
